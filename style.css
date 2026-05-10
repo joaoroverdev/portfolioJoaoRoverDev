@@ -502,15 +502,6 @@ body{
     color: #004c99; 
 }
 
-
-
-
-
-
-
-
-
-
 .contact {
     min-height: 100vh;
     background:
@@ -593,6 +584,7 @@ body{
 }
 
 /* Footer Style */
+
 footerContact {
     width: 100%;
     padding: 20px 40px;
@@ -618,4 +610,475 @@ footerContact {
     color: white;
     text-decoration: none;
     font-weight: bold;
+}
+
+
+/*!-- MEDIA QUERIES */
+
+@media (min-width: 2560px) {
+ 
+    /* --- NAVBAR --- */
+    .navbar {
+        padding: 36px 12%;
+    }
+ 
+    .logo {
+        font-size: 2.8rem;
+    }
+ 
+    .status {
+        font-size: 1.15rem;
+        padding: 14px 28px;
+    }
+ 
+    .menu-button {
+        font-size: 1.8rem;
+    }
+ 
+    /* --- HERO --- */
+    .hero {
+        padding-top: 120px;
+    }
+ 
+    .hero-content {
+        max-width: 2200px;
+        padding: 180px 12% 0;
+        gap: 160px;
+    }
+ 
+    .hero-left h1 {
+        font-size: 8rem;
+        letter-spacing: -5px;
+    }
+ 
+    .hero-left h1 span {
+        font-size: 14rem;
+    }
+ 
+    .hero-description {
+        font-size: 1.4rem;
+        max-width: 780px;
+        margin-top: 36px;
+    }
+ 
+    .btn-primary {
+        font-size: 1.2rem;
+        padding: 22px 44px;
+        border-radius: 14px;
+    }
+ 
+    .btn-secondary {
+        font-size: 1.2rem;
+    }
+ 
+    .hero-right {
+        gap: 40px;
+    }
+ 
+    .hero-footer {
+        padding: 50px 12%;
+    }
+ 
+    .hero-footer p {
+        font-size: 1.8rem;
+        max-width: 1400px;
+    }
+ 
+    /* --- ABOUT --- */
+    .about {
+        padding: 180px 12%;
+    }
+ 
+    .about-container {
+        max-width: 2200px;
+        gap: 140px;
+    }
+ 
+    .about-image {
+        max-width: 580px;
+        border-radius: 28px;
+    }
+ 
+    .section-tag {
+        font-size: 1rem;
+        letter-spacing: 4px;
+        margin-bottom: 28px;
+    }
+ 
+    .about-right h2 {
+        font-size: 5rem;
+        margin-bottom: 36px;
+    }
+ 
+    .about-right p {
+        font-size: 1.3rem;
+        margin-bottom: 28px;
+    }
+ 
+    .about-benefits {
+        gap: 18px;
+        margin-top: 50px;
+    }
+ 
+    .benefit-card {
+        font-size: 1.1rem;
+        padding: 16px 26px;
+        border-radius: 14px;
+    }
+ 
+    .about-cta {
+        margin-top: 60px;
+        gap: 40px;
+    }
+ 
+    .about-cta p {
+        font-size: 1.3rem;
+    }
+ 
+    /* --- SERVICES --- */
+    .services {
+        padding: 6rem 12% 8rem;
+    }
+ 
+    .services-title {
+        font-size: 3.5rem;
+        margin-bottom: 3rem;
+    }
+ 
+    .services-grid {
+        max-width: 2000px;
+        gap: 2.5rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+ 
+    .services-grid.extra-service {
+        grid-template-columns: minmax(300px, 500px);
+    }
+ 
+    .service-card {
+        padding: 3.5rem 3rem;
+        border-radius: 20px;
+    }
+ 
+    .features li {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+ 
+    .highlight {
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
+    }
+ 
+    .btn {
+        font-size: 1rem;
+        padding: 1rem 2.5rem;
+    }
+ 
+    /* --- CONTACT --- */
+    .contact h2 {
+        font-size: 4.5rem;
+        letter-spacing: 3px;
+    }
+ 
+    .contact p {
+        font-size: 1.5rem;
+        margin-bottom: 50px;
+    }
+ 
+    .btn-whatsapp {
+        font-size: 1.2rem;
+        padding: 20px 40px;
+        border-radius: 10px;
+    }
+ 
+    .btn-whatsapp img {
+        width: 26px;
+    }
+ 
+    .email-link {
+        font-size: 1.2rem;
+    }
+ 
+    footerContact {
+        padding: 28px 12%;
+    }
+ 
+    .footerContact-content {
+        max-width: 2000px;
+        font-size: 1rem;
+    }
+}
+ 
+ 
+/* ============================================================
+   1080x1920 — Celular portrait (e qualquer tela <= 768px)
+   max-width: 768px
+   ============================================================ */
+ 
+@media (max-width: 768px) {
+ 
+    /* --- NAVBAR --- */
+    .navbar {
+        padding: 18px 5%;
+    }
+ 
+    .logo {
+        font-size: 1.4rem;
+    }
+ 
+    /* Esconde o pill de status — sem espaco na navbar mobile */
+    .status {
+        display: none;
+    }
+ 
+    .menu-button {
+        font-size: 1.1rem;
+    }
+ 
+    /* --- HERO --- */
+    .hero {
+        padding-top: 80px;
+        min-height: 100svh;
+    }
+ 
+    .hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 5% 0;
+        gap: 32px;
+        max-width: 100%;
+    }
+ 
+    .hero-left {
+        width: 100%;
+    }
+ 
+    .hero-left h1 {
+        font-size: clamp(2.8rem, 12vw, 4.5rem);
+        letter-spacing: -2px;
+        line-height: 1;
+    }
+ 
+    .hero-left h1 span {
+        font-size: clamp(4.5rem, 20vw, 7rem);
+        display: block;
+        line-height: 0.9;
+    }
+ 
+    .hero-description {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-top: 50px;
+        max-width: 100%;
+    }
+ 
+    br {
+    display: none;
+    }
+
+    .hero-right {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        width: 100%;
+    }
+ 
+    .btn-primary {
+        margin-top: 100px;
+        display: block;
+        text-align: center;
+        font-size: 1rem;
+        padding: 16px 20px;
+        border-radius: 10px;
+    }
+ 
+    .btn-secondary {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+ 
+    .hero-footer {
+        margin-top: 40px;
+        padding: 24px 5%;
+    }
+ 
+    .hero-footer p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        text-align: center;
+    }
+ 
+    /* --- ABOUT --- */
+    .about {
+        padding: 70px 5%;
+    }
+ 
+    .about-container {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+ 
+    .about-left {
+        width: 100%;
+        flex: none;
+    }
+ 
+    .about-image {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 14px;
+    }
+ 
+    .about-right {
+        flex: none;
+        width: 100%;
+    }
+ 
+    .section-tag {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+    }
+ 
+    .about-right h2 {
+        font-size: clamp(1.8rem, 7vw, 2.8rem);
+        line-height: 1.15;
+        margin-bottom: 18px;
+    }
+ 
+    .about-right p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 14px;
+    }
+ 
+    .about-benefits {
+        gap: 10px;
+        margin-top: 28px;
+    }
+ 
+    .benefit-card {
+        font-size: 0.82rem;
+        padding: 10px 14px;
+        border-radius: 10px;
+    }
+ 
+    .about-cta {
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 36px;
+        gap: 14px;
+    }
+ 
+    .about-cta p {
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
+ 
+    .about-cta .btn-primary {
+        text-align: center;
+        width: 100%;
+    }
+ 
+    /* --- SERVICES --- */
+    .services {
+        padding: 3.5rem 5% 5rem;
+    }
+ 
+    .services-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+ 
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+ 
+    .services-grid.extra-service {
+        grid-template-columns: 1fr;
+        justify-content: stretch;
+    }
+ 
+    .service-card {
+        padding: 1.8rem 1.4rem;
+        border-radius: 12px;
+    }
+ 
+    .features {
+        margin-bottom: 1rem;
+    }
+ 
+    .features li {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+ 
+    .highlight {
+        font-size: 0.88rem;
+        margin-bottom: 1.5rem;
+    }
+ 
+    .btn {
+        font-size: 0.82rem;
+        padding: 0.8rem 1.4rem;
+    }
+ 
+    /* --- CONTACT --- */
+    .contact {
+        min-height: 100svh;
+    }
+ 
+    .containerContact {
+        padding: 60px 5% 40px;
+    }
+ 
+    .contact h2 {
+        font-size: clamp(1.6rem, 7vw, 2.4rem);
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+    }
+ 
+    .contact p {
+        font-size: 0.95rem;
+        margin-bottom: 32px;
+    }
+ 
+    .actions {
+        width: 100%;
+        gap: 18px;
+    }
+ 
+    .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.9rem;
+        padding: 14px 20px;
+        border-radius: 8px;
+    }
+ 
+    .email-link {
+        font-size: 0.9rem;
+        justify-content: center;
+    }
+ 
+    /* --- FOOTER CONTACT --- */
+    footerContact {
+        padding: 18px 5%;
+    }
+ 
+    .footerContact-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        font-size: 0.8rem;
+    }
+ 
+    .footerContact-nav {
+        gap: 20px;
+        justify-content: center;
+    }
 }

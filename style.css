@@ -1,13 +1,69 @@
 /* RESET */
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* VARIÁVEIS */
 
+/* RESPONSIVIDADE PARA TODOS OS NAVEGADORES */
+
+/* TEXTO MAIS NÍTIDO MAC/IOS */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* IMAGENS NUNCA VAZAM O CONTAINER */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* FIXA NAVBAR NO SAFARI */
+.navbar {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* CORRIGE A BARRA DO BROWSER NO iOS */
+.hero {
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+.contact {
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+/* BACKDROP-FILTER */
+.service-card {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+.benefit-card {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* FLEX GAP - MARGEM PARA SAFAR */
+/* @supports CONSULTA SE O NAVEGADOR SUPORTA A PROPRIEDADE gap */
+.hero-right > * + * {
+    margin-left: 30px; /* fallback */
+}
+@supports (gap: 1px) {
+    .hero-right > * + * { margin-left: 0; }
+}
+.about-benefits > * + * {
+    margin-left: 15px; /* fallback */
+}
+@supports (gap: 1px) {
+    .about-benefits > * + * { margin-left: 0; }
+}
+
+
+/* VARIÁVEIS */
 :root{
     --primary: #00AAFF;
     --primary-dark: #0077b6;
@@ -16,7 +72,6 @@
 }
 
 /* BODY */
-
 body{
     font-family: 'Montserrat', sans-serif;
     background: var(--black);
@@ -24,7 +79,6 @@ body{
 }
 
 /* HERO */
-
 .hero{
     min-height: 100vh;
 
@@ -44,7 +98,6 @@ body{
 }
 
 /* NAVBAR */
-
 .navbar{
     position: fixed;
 
@@ -63,7 +116,6 @@ body{
 }
 
 /* LOGO */
-
 .logo{
     text-decoration: none;
 
@@ -74,7 +126,6 @@ body{
 }
 
 /* STATUS */
-
 .status{
     border: 2px solid var(--white);
 
@@ -86,8 +137,7 @@ body{
     font-weight: 400;
 }
 
-/* MENU BUTTON */
-
+/* BOTÃO MENU */
 .menu-button{
     background: transparent;
     border: none;
@@ -101,13 +151,86 @@ body{
 
     transition: 0.3s ease;
 }
-
 .menu-button:hover{
     opacity: 0.7;
 }
+/* OVERLAY - BOTÃO MENU */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1500;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.menu-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+/* DRAWER - GAVETA BOTÃO MENU */
+.menu-drawer {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 260px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 2000;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+}
+.menu-drawer.open {
+    right: 0;
+}
+/* BOTÃO FECHAR */
+.menu-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+.menu-close:hover {
+    opacity: 1;
+}
+/* LINKS DO DRAWER */
+.drawer-nav {
+    display: flex;
+    flex-direction: column;
+}
+.drawer-nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 20px 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    transition: background 0.2s ease, padding-left 0.2s ease;
+}
+.drawer-nav a:last-child {
+    border-bottom: none;
+}
+.drawer-nav a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    padding-left: 42px;
+    color: var(--primary);
+}
 
-/* HERO CONTENT */
-
+/* CONTEÚDO DA HERO */
 .hero-content{
     width: 100%;
     max-width: 1400px;
@@ -121,17 +244,9 @@ body{
 
     gap: 80px;
 }
-
+/* CONTEÚDO ESQUERDO - HERO */
 .hero-left{
     flex: 1;
-}
-
-.hero-right{
-    display: flex;
-    align-items: center;
-    gap: 30px;
-
-    flex-wrap: wrap;
 }
 
 .hero-left h1{
@@ -174,7 +289,16 @@ body{
     color: rgba(255, 255, 255, 0.85);
 }
 
-/* BOTÃO PRIMARY */
+/* CONTEÚDO DIREITO - HERO */
+.hero-right{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    flex-wrap: wrap;
+}
+
+/* BOTÃO ORÇAMENTO */
 
 .btn-primary{
     background: var(--white);
@@ -197,7 +321,7 @@ body{
     transform: translateY(-3px);
 }
 
-/* BOTÃO SECONDARY */
+/* BOTÃO VER PROJETOS */
 
 .btn-secondary{
     text-decoration: none;
@@ -214,7 +338,7 @@ body{
     opacity: 0.7;
 }
 
-/* FOOTER */
+/* FOOTER DA HERO */
 
 .hero-footer{
     margin-top: 80px;
@@ -253,7 +377,6 @@ body{
 }
 
 /* CONTAINER */
-
 .about-container{
     max-width: 1400px;
 
@@ -266,14 +389,11 @@ body{
     gap: 80px;
 }
 
-/* LEFT */
-
+/* CONTEÚDO ESQUERDO - SOBRE */
 .about-left{
     flex: 1;
 }
-
 /* IMAGE */
-
 .about-image{
     width: 100%;
     max-width: 420px;
@@ -286,14 +406,12 @@ body{
     0 20px 60px rgba(0,0,0,0.35);
 }
 
-/* RIGHT */
-
+/* CONTEÚDO DIREITO - SOBRE */
 .about-right{
     flex: 1;
 }
 
-/* TAG */
-
+/* TÍTULO - POR QUE */
 .section-tag{
     color: #ffffff;
 
@@ -307,8 +425,7 @@ body{
     opacity: 0.7;
 }
 
-/* TITLE */
-
+/* TÍTULO DA SOBRE */
 .about-right h2{
     font-size: clamp(2.5rem, 5vw, 4rem);
 
@@ -319,8 +436,7 @@ body{
     color: white;
 }
 
-/* TEXT */
-
+/* TEXTO SOBRE */
 .about-right p{
     font-size: 1.1rem;
 
@@ -331,8 +447,7 @@ body{
     margin-bottom: 20px;
 }
 
-/* BENEFITS */
-
+/* CARDS DA SOBRE */
 .about-benefits{
     display: flex;
     flex-wrap: wrap;
@@ -343,7 +458,6 @@ body{
 }
 
 /* CARD */
-
 .benefit-card{
     padding: 14px 20px;
 
@@ -361,8 +475,7 @@ body{
     font-weight: 500;
 }
 
-/* CTA */
-
+/* CTA SOBRE */
 .about-cta{
     margin-top: 50px;
 
@@ -374,21 +487,20 @@ body{
     flex-wrap: wrap;
 }
 
-/* CTA TEXT */
-
+/* CTA SOBRE TEXTO */
 .about-cta p{
     margin-bottom: 0;
 
     font-size: 1.1rem;
 }
 
-/* SERVIÇOS */
+/* SESSÃO - SERVIÇOS */ 
 .services{
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 5% 5rem;
+    padding: 10rem 5% 5rem;
 
     background:
     linear-gradient(
@@ -416,12 +528,13 @@ body{
     margin-bottom: 3rem;
 }
 
+/* GRID SERVICES - LINHA EXTRA */
 .services-grid.extra-service {
     grid-template-columns: minmax(300px, 400px);
     justify-content: center;
 }
 
-/* CARDS */
+/* ESTILIZAÇÃO DOS CARDS */
 .service-card {
     /* EFEITO GLASS */
     background: rgba(255, 255, 255, 0.05);
@@ -435,50 +548,42 @@ body{
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .service-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     background: rgba(255, 255, 255, 0.08);
 }
-
 .features {
     list-style: none;
     margin-bottom: 1.5rem;
     flex-grow: 1;
 }
-
 .features li {
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
     line-height: 1.4;
     color: #e0e0e0;
 }
-
 .features li::before {
     content: "- ";
 }
-
 .features li.feature-title {
     font-weight: 600;
     color: #ffffff;
     margin-bottom: 1rem;
 }
-
 .highlight {
     font-size: 0.95rem;
     margin-bottom: 2rem;
     color: #ffffff;
     font-weight: 600;
 }
-
 .card-footer {
     /* BOTÕES DOS CARDS NO CENTRO */
     display: flex;
     justify-content: center;
 }
-
-/* BOTÕES */
+/* BOTÕES DOS CARDS */
 .btn {
     text-decoration: none;
     color: white;
@@ -491,17 +596,16 @@ body{
     text-align: center;
     width: 100%;
 }
-
 .btn-outline {
     border: 1px solid white;
     background: transparent;
 }
-
 .btn-outline:hover {
     background: white;
     color: #004c99; 
 }
 
+/* SESSÃO - CONTATO */
 .contact {
     min-height: 100vh;
     background:
@@ -540,13 +644,14 @@ body{
     opacity: 0.9;
 }
 
+/* BOTOES DE CONTATO */
 .actions {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 25px;
 }
-
+/* BOTÃO WHATSAPP */
 .btn-whatsapp {
     background-color: #00a8ff;
     color: white;
@@ -559,16 +664,15 @@ body{
     gap: 10px;
     transition: transform 0.3s ease, background 0.3s ease;
 }
-
 .btn-whatsapp img {
     width: 20px;
 }
-
 .btn-whatsapp:hover {
     transform: scale(1.05);
     background-color: #0091db;
 }
 
+/* BOTÃO DE E-MAIL */
 .email-link {
     color: white;
     text-decoration: none;
@@ -578,19 +682,16 @@ body{
     gap: 10px;
     opacity: 0.8;
 }
-
 .email-link:hover {
     opacity: 1;
 }
 
-/* Footer Style */
-
+/* FOOTER DE CONTATO */
 footerContact {
     width: 100%;
     padding: 20px 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .footerContact-content {
     display: flex;
     justify-content: space-between;
@@ -600,7 +701,6 @@ footerContact {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.7);
 }
-
 .footerContact-nav {
     display: flex;
     gap: 20px;
@@ -612,75 +712,7 @@ footerContact {
     font-weight: bold;
 }
 
-
-
-
-
-/* ============================================================
-   FIXES CROSS-BROWSER — aplique no topo do style.css
-   ============================================================ */
-
-/* 1. Font smoothing — texto mais nítido em Mac/iOS */
-body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* 2. Imagens nunca vazam o container */
-img {
-    max-width: 100%;
-    display: block;
-}
-
-/* 3. Navbar: fix Safari iOS com position fixed */
-.navbar {
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-}
-
-/* 4. Hero e Contact: 100svh corrige barra do browser no iOS
-      100vh como fallback para browsers que não suportam svh */
-.hero {
-    min-height: 100vh;
-    min-height: 100svh;
-}
-
-.contact {
-    min-height: 100vh;
-    min-height: 100svh;
-}
-
-/* 5. backdrop-filter com prefixo webkit em TODOS os elementos com blur */
-.service-card {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-
-.benefit-card {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-
-/* 6. Flex gap: fallback com margin para Safari < 14.1 */
-/* hero-right */
-.hero-right > * + * {
-    margin-left: 30px; /* fallback */
-}
-@supports (gap: 1px) {
-    .hero-right > * + * { margin-left: 0; }
-}
-
-/* about-benefits */
-.about-benefits > * + * {
-    margin-left: 15px; /* fallback */
-}
-@supports (gap: 1px) {
-    .about-benefits > * + * { margin-left: 0; }
-}
-
-/* ============================================================
-   MEDIA QUERIES
-   ============================================================ */
+/* MEDIA QUERIES */
 
 /* 2560x1440 — Monitor 2K / QHD */
 @media (min-width: 2560px) {
@@ -777,7 +809,7 @@ img {
         font-size: 1.3rem;
     }
     .services {
-        padding: 6rem 12% 8rem;
+        padding: 8rem 12% 8rem;
     }
     .services-title {
         font-size: 3.5rem;
@@ -835,8 +867,7 @@ img {
     }
 }
 
-
-/* 1080x1920 — Celular portrait (qualquer tela <= 768px) */
+/* 1080x1920 — Celular retrato (qualquer tela <= 768px) */
 @media (max-width: 768px) {
 
     .navbar {

@@ -22,23 +22,31 @@
 </head>
 
 <body>
-
+    <!-- HERO/HEADER -->
     <header class="hero">
         <!-- NAVBAR -->
         <nav class="navbar">
-            <a href="#" class="logo">
-                João Rover
-            </a>
-            <p class="status">
-                Disponível para novos projetos
-            </p>
-            <button class="menu-button">
-                ☰ MENU
-            </button>
+            <a href="#home" class="logo">João Rover</a>
+            <p class="status">Disponível para novos projetos</p>
+            <button class="menu-button" id="menuBtn" onclick="openMenu()">☰ MENU</button>
         </nav>
 
+        <!-- OVERLAY - ESCURECE O FUNDO AO ABRIR O MENU -->
+        <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+        <!-- DRAWER - MENU LATERAL (GAVETA) -->
+        <div class="menu-drawer" id="menuDrawer">
+            <button class="menu-close" onclick="closeMenu()">✕</button>
+                <nav class="drawer-nav">
+                    <a href="#home"     onclick="closeMenu()">Home</a>
+                    <a href="#sobre"    onclick="closeMenu()">Sobre</a>
+                    <a href="#servicos" onclick="closeMenu()">Serviços</a>
+                    <a href="#contato"  onclick="closeMenu()">Contato</a>
+                </nav>
+        </div>
+
         <!-- CONTEÚDO -->
-        <main class="hero-content">
+        <main class="hero-content" id="home">
             <div class="hero-left">
                 <h1><strong>Seu</strong> site <br>
                     pronto em <br>
@@ -51,12 +59,11 @@
             </div>
             <div class="hero-right">
                 <a href="https://wa.me/5547984166284" class="btn-primary">Solicitar orçamento</a>
-
                 <a href="#" class="btn-secondary">Ver projetos</a>
             </div>
         </main>
 
-        <!-- FOOTER -->
+        <!-- FOOTER DA HOME -->
         <footer class="hero-footer">
             <p>
                 Sites otimizados que atraem clientes 24h pelo WhatsApp.<br>
@@ -66,7 +73,8 @@
     </header>
 
 <!-- SOBRE -->
-    <section class="about">
+    <section class="about" id="sobre">
+        <!-- CRIA CONTAINER PARA DIVIDIR EM DUAS PARTES ESQUERDA E DIREITA -->
         <div class="about-container">
             <!-- ESQUERDA -->
             <div class="about-left">
@@ -76,7 +84,6 @@
                     class="about-image"
                 >
             </div>
-
             <!-- DIREITA -->
             <div class="about-right">
                 <p class="section-tag">
@@ -92,7 +99,7 @@
                     Crio sites rápidos, profissionais e otimizados para atrair clientes,
                     transmitir confiança e converter visitantes em vendas.
                 </p>
-
+        <!--CRIA MINI-CARDS -->
             <!-- BENEFÍCIOS -->
             <div class="about-benefits">
                 <div class="benefit-card">
@@ -120,6 +127,7 @@
                 <p>
                     Faço o site que seu negócio precisa.
                 </p>
+            <!-- BOTÃO ORÇAMENTO -->
                 <a href="https://wa.me/5547984166284" class="btn-primary">
                     Solicitar orçamento
                 </a>
@@ -129,16 +137,21 @@
 </section>
 
 <!-- SERVIÇOS -->
-<section class="services">
+<section class="services" id="servicos">
         <h1 class="services-title">Serviços</h1>
+        <!-- CRIA GRID DE SERVIÇOS -->
         <div class="services-grid">
+            <!-- CARD DE SERVIÇO -->
             <div class="service-card">
+                <!-- LISTA DE BENEFÍCIOS DO SERVIÇO -->
                 <ul class="features">
                     <li>Site completo 5 páginas</li>
                     <li>Funciona 100% celular</li>
                     <li>Entrega 7 dias</li>
                 </ul>
+                <!-- DESTAQUE DO SERVIÇO -->
                 <p class="highlight">→ Seu negócio online completo!</p>
+                <!-- BOTÃO PARA VER DETALHES DO SERVIÇO -->
                 <div class="card-footer">
                     <a href="#" class="btn btn-outline">SITES INSTITUCIONAIS</a>
                 </div>
@@ -169,7 +182,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- GRID DE SERVIÇO EXTRA -->
         <div class="services-grid extra-service">
             <div class="service-card">
                 <ul class="features">
@@ -187,22 +200,27 @@
     </main>
 </section>
 
-<section class="contact">
+<!-- CONTATO -->
+<section class="contact" id="contato">
+        <!-- CONTAINER PARA CENTRALIZAR O CONTEÚDO -->
         <div class="containerContact">
             <h2>PRONTO PARA COMEÇAR?</h2>
             <p>Entre em contato e criamos seu pacote personalizado</p>
-            
+            <!-- BOTÕES DE CONTATO -->
             <div class="actions">
+                <!-- BOTÃO WHATSAPP -->
                 <a href="https://wa.me/5547984166284" class="btn-whatsapp">
                     <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
                     CONVERSAR NO WHATSAPP
                 </a>
+                <!-- BOTÃO DE E-MAIL -->
                 <a href="mailto:joaorover.dev@gmail.com" class="email-link">
                     <span>→</span> joaorover.dev@gmail.com
                 </a>
             </div>
         </div>
 
+        <!-- FOOTER DE CONTATO -->
         <footerContact>
             <div class="footerContact-content">
                 <span class="domain">joaorover.dev</span>
@@ -214,6 +232,26 @@
             </div>
         </footerContact>
 </section>
+
+<!-- SCRIPTS PARA ABRIR E FECHAR O MENU LATERAL (GAVETA) -->
+<script>
+    <!-- Função para abrir o menu lateral -->
+    function openMenu() {
+        document.getElementById('menuDrawer').classList.add('open');
+        document.getElementById('menuOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    <!-- Função para fechar o menu lateral -->
+    function closeMenu() {
+        document.getElementById('menuDrawer').classList.remove('open');
+        document.getElementById('menuOverlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    <!-- Fecha o menu ao pressionar a tecla ESC -->
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeMenu();
+    });
+</script>
 
 </body>
 </html>

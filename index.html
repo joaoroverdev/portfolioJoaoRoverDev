@@ -234,20 +234,22 @@
 </section>
 
 <!-- SCRIPTS PARA ABRIR E FECHAR O MENU LATERAL (GAVETA) -->
+<!-- Função para abrir o menu lateral -->
+<!-- Função para fechar o menu lateral -->
+<!-- Fecha o menu ao pressionar a tecla ESC -->
 <script>
-    <!-- Função para abrir o menu lateral -->
     function openMenu() {
         document.getElementById('menuDrawer').classList.add('open');
         document.getElementById('menuOverlay').classList.add('active');
         document.body.style.overflow = 'hidden';
     }
-    <!-- Função para fechar o menu lateral -->
+
     function closeMenu() {
         document.getElementById('menuDrawer').classList.remove('open');
         document.getElementById('menuOverlay').classList.remove('active');
         document.body.style.overflow = '';
     }
-    <!-- Fecha o menu ao pressionar a tecla ESC -->
+
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeMenu();
     });
